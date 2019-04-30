@@ -29,12 +29,28 @@ pubnub.subscribe({
 });
 
 pubnub.addListener({
-    message: function (message) {
-        let tweet = message.message;
-        // console.log(tweet);
+    message: function (response) {
+        let tweet = {
+            id: response.message.id,
+            text: response.message.text,
+            source: response.message.source,
+            user: {
+                name: response.message.user.name,
+                screen_name: response.message.user.screen_name,
+            },
+            geo: response.message.geo,
+            coordinates: response.message.coordinates,
+            place: {
+                full_name: response.message.place ? response.message.place.full_name:null,
+            },
+            entities: {
+                hashtags: response.message.entities.hashtags
+            }
+        };
+
 
         const params = {
-            DeliveryStreamName: 'pubnub-stream',
+            DeliveryStreamName: 'pubnub-twitter-stream',
             Record: { Data: new Buffer(JSON.stringify(tweet)) }
         }
 
