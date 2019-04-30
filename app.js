@@ -32,7 +32,9 @@ pubnub.addListener({
             Record: { Data: new Buffer(JSON.stringify(tweet)) }
         }
 
-        fireHose.putRecord(params);
+        fireHose.putRecord(params, (err, tweet) => {
+            console.log(err, tweet);
+        });
 
     }
 });
