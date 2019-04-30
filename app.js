@@ -3,21 +3,6 @@ AWS.config.update({ region: 'us-west-2' });
 
 const fireHose = new AWS.Firehose();
 
-// const data = {
-//     message: 'This is my data. Hello world.'
-// }
-
-// const params = {
-//     DeliveryStreamName: 'pubnub-twitter',
-//     Record: { Data: new Buffer(JSON.stringify(tweet)) }
-// }
-
-// fireHose.putRecord(params, (err, data) => {
-//     console.log(err, data);
-// });
-
-////////////////////////////////////////////////////////////Z
-
 const PubNub = require('pubnub');
 
 const pubnub = new PubNub({
@@ -34,29 +19,20 @@ pubnub.addListener({
             id: response.message.id,
             text: response.message.text,
             source: response.message.source,
-            user: {
-                name: response.message.user.name,
-                screen_name: response.message.user.screen_name,
-            },
-            geo: response.message.geo,
+            user_screen_name: response.message.user.screen_name,
+            place: response.message.place ? response.message.place.full_name : null,
+            hashtags: response.message.entities.hashtags,
             coordinates: response.message.coordinates,
-            place: {
-                full_name: response.message.place ? response.message.place.full_name:null,
-            },
-            entities: {
-                hashtags: response.message.entities.hashtags
-            }
         };
 
+        // console.log(tweet);
 
         const params = {
             DeliveryStreamName: 'pubnub-twitter-stream',
             Record: { Data: new Buffer(JSON.stringify(tweet)) }
         }
 
-        fireHose.putRecord(params, (err, tweet) => {
-            console.log(err, tweet);
-        });
+        fireHose.putRecord(params);
 
     }
 });
