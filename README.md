@@ -8,9 +8,14 @@
 - [Pre-requisites Set Up](#pre-requisites-set-up)
 - [How to set up and kick-off project from developer sandbox?](#how-to-set-up-and-kick-off-project-from-developer-sandbox)
 <!-- tocstop -->
-University Name: [San Jose State University](http://www.sjsu.edu/)  
-Course: [Big Data Engineering and Analytics](http://info.sjsu.edu/web-dbgen/catalog/courses/CMPE266.html)  
-Professor: [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)  
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/47429297/57045023-3e82f080-6c21-11e9-8a94-77f08a6ed3ac.jpg">
+</p>
+
+#### University Name: [San Jose State University](http://www.sjsu.edu/)  
+#### Course: [Big Data Engineering and Analytics](http://info.sjsu.edu/web-dbgen/catalog/courses/CMPE266.html)  
+#### Professor: [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)  
 
 ## Team members:  
 1. [Tarun Arora](https://www.linkedin.com/in/tarunarorasjsu/)  
