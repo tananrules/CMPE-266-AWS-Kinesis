@@ -1,10 +1,18 @@
 const AWS = require('aws-sdk');
-const fireHose = new AWS.Firehose();
-const PubNub = require('pubnub');
-const striptags = require('striptags');
-
-
 AWS.config.update({ region: 'us-west-2' });
+
+const PubNub = require('pubnub');
+const pubnub = new PubNub({
+    subscribe_key: 'sub-c-78806dd4-42a6-11e4-aed8-02ee2ddab7fe'
+});
+
+pubnub.subscribe({
+    channels: ['pubnub-twitter']
+});
+
+const striptags = require('striptags');
+const fireHose = new AWS.Firehose();
+
 
 const supportedLanguages = {
     ar: "Arabic",
@@ -28,14 +36,6 @@ const supportedLanguages = {
     sv: "Swedish",
     tr: "Turkish"
 };
-
-const pubnub = new PubNub({
-    subscribe_key: 'sub-c-78806dd4-42a6-11e4-aed8-02ee2ddab7fe'
-});
-
-pubnub.subscribe({
-    channels: ['pubnub-twitter']
-});
 
 pubnub.addListener({
     message: function (response) {
