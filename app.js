@@ -43,7 +43,7 @@ pubnub.addListener({
         if(typeof supportedLanguages[response.message.lang] !== "undefined") {
             let tweet = {
                 id: response.message.id,
-                lang: response.lang,
+                lang: response.message.lang,
                 text: response.message.text,
                 source: striptags(response.message.source),
                 user_screen_name: response.message.user.screen_name,
