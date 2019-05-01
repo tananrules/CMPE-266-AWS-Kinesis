@@ -55,7 +55,7 @@ pubnub.addListener({
             // console.log(tweet);
 
             const params = {
-                DeliveryStreamName: 'pubnub-twitter-stream',
+                DeliveryStreamName: 'pubnub-twitter-raw-stream',
                 Record: { Data: new Buffer(JSON.stringify(tweet)) }
             }
 
