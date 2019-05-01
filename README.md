@@ -31,9 +31,10 @@ data is used to find out the devices from which the tweets originate. It can be 
 web application. The tweets stream is produced using PubNub’s twitter stream service. This service is publishing 50 tweets per 
 second on API which will be consumed using AWS Kinesis for the analysis and will be stored in S3 bucket. We will use AWS 
 Kinesis stream or Kinesis firehose to process the stream of data and eventually store data in S3 bucket. While storing data in 
-S3 bucket we will use a lambda function on data and store only required data. After storing data in S3 bucket we can use IAM to
+S3 bucket we are using a lambda function on data and store only required data. After storing data in S3 bucket we use IAM to
 give access of S3 to Athena. Athena will have Data Catalog to understand stored data in S3. It will fetch data from S3 and send
 it to Amazon Quick Sight. 
+
 ### Features List
 * Analysis of tweets 
 * Extraction of Geolocation from tweets
