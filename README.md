@@ -6,7 +6,6 @@
 - [Project Introduction](#project-introduction)
 - [Sample Demo Screenshots](#sample-demo-screenshots)
 - [Pre-requisites Set Up](#pre-requisites-set-up)
-- [How to set up and kick-off project from developer sandbox?](#how-to-set-up-and-kick-off-project-from-developer-sandbox)
 <!-- tocstop -->
 
 <p align="center">
@@ -43,7 +42,21 @@ it to Amazon Quick Sight.
 * Storing only required data, decreasing storage load
 
 ## Sample Demo Screenshots
+* Showing analysis of sources of tweets with its counts:
 
+![alt text](https://github.com/tananrules/CMPE-266-AWS-Kinesis/blob/master/images/13.png?raw=true)
+
+* Showing the sum of tweets on basis of language of the tweet:
+
+![alt text](https://github.com/tananrules/CMPE-266-AWS-Kinesis/blob/master/images/14.png?raw=true)
+
+* Counting the records on the basis of lat, long and language(PART-A):
+
+![alt text](https://github.com/tananrules/CMPE-266-AWS-Kinesis/blob/master/images/15.png?raw=true)
+
+* Counting the records on the basis of lat, long and language(PART-B):
+
+![alt text](https://github.com/tananrules/CMPE-266-AWS-Kinesis/blob/master/images/16.png?raw=true)
 
 ## Pre-requisites Set Up
 * **Setting up the Kinesis Delivery System**
@@ -113,13 +126,7 @@ Follow the steps in Setting Up with Amazon EC2 in the Amazon EC2 User Guide for 
        ```node
        node app.js
        ```
-* **Setting Up the Amazon Lambda function**
-  * Open Lambda from the aws management console
-  * Create Lambda function
-  * Select S3 trigger and configure S3
-  * Edit index.js
-  * Setup the IAM Role and make policies for the required accessibilities such as S3 full acccess and translate read permission.
-
+       
 * **Setting Up the Amazon Athena** 
   * Open the Athena console.
   * To create a database named mydatabase, enter the following CREATE DATABASE statement, and then choose Run Query:
