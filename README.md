@@ -46,7 +46,7 @@ it to Amazon Quick Sight.
 
 
 ## Pre-requisites Set Up
-* Setting up the Kinesis Delivery System
+* **Setting up the Kinesis Delivery System**
   * Sign in to the AWS Management Console and open the Kinesis console at https://console.aws.amazon.com/kinesis.
   * Choose Data Firehose in the navigation pane.
   * Choose Create delivery stream.
@@ -55,7 +55,7 @@ it to Amazon Quick Sight.
     * Source: Direct PUT or other sources: Choose this option to create a Kinesis Data Firehose delivery stream that producer       applications write to directly.
     * Kinesis stream: Choose this option to configure a Kinesis Data Firehose delivery stream that uses a Kinesis data stream as a data source. You can then use Kinesis Data Firehose to read data easily from an existing Kinesis data stream and load it into destinations. For more information about using Kinesis Data Streams as your data source, see Writing to Amazon Kinesis Data Firehose Using Kinesis Data Streams.
 
-* Setting up the S3 for storing the data from the Firehose Delivery System.
+* **Setting up the S3 for storing the data from the Firehose Delivery System.**
   * Sign in to the preview version of the AWS Management Console.
   * Under Storage & Content Delivery, choose S3 to open the Amazon S3 console.       
   * From the Amazon S3 console dashboard, choose Create Bucket.
@@ -66,7 +66,7 @@ it to Amazon Quick Sight.
   
 **When Amazon S3 successfully creates your bucket, the console displays your empty bucket in the Buckets pane.**
 
-* Setting up the Amazon AMI EC2  
+* **Setting up the Amazon AMI EC2**  
   * Before you can launch and connect to an Amazon EC2 instance, you need to create a key pair, unless you already have one. You can create a key pair using the Amazon EC2 console and then you can launch your EC2 instance.
   * To create a key pair
   
@@ -91,7 +91,7 @@ Follow the steps in Setting Up with Amazon EC2 in the Amazon EC2 User Guide for 
      * From the menu that opens, choose Networking and then choose Change Security Groups.
      * Select the check box next to the security group with the description default VPC security group.
      * Choose Assign Security Groups.
-* Setting up the ssh connection and deploying the node application 
+* **Setting up the ssh connection and deploying the node application** 
      * Browse to the key folder.
      * Use chmod to make key secure
        ```ssh
@@ -113,16 +113,21 @@ Follow the steps in Setting Up with Amazon EC2 in the Amazon EC2 User Guide for 
        ```node
        node app.js
        ```
-* Setting Up the Amazon Lambda function
-* Setting Up the IAM Roles for Amazon Lambda 
-* Setting Up the Amazon Athena 
+* **Setting Up the Amazon Lambda function**
+  * Open Lambda from the aws management console
+  * Create Lambda function
+  * Select S3 trigger and configure S3
+  * Edit index.js
+  * Setup the IAM Role and make policies for the required accessibilities such as S3 full acccess and translate read permission.
+
+* **Setting Up the Amazon Athena** 
   * Open the Athena console.
   * To create a database named mydatabase, enter the following CREATE DATABASE statement, and then choose Run Query:
     ```sql
     CREATE DATABASE mydatabase
     ```
 **Confirm that the catalog display refreshes and mydatabase appears in the DATABASE list in the Catalog dashboard on the left side.**
-* Building the Quicksight Dashboard
+* **Building the Quicksight Dashboard**
   * Launch into QuickSight – https://us-east-1.quicksight.aws.amazon.com/sn/start.
   * Choose Manage data from the top right.
   * Choose New Data Set.
